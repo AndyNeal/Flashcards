@@ -17,6 +17,13 @@ namespace Flashcards
 
             while (ans.ToUpper() != "Q")
             {
+                if (pool.Count < 1)
+                {
+                    Console.WriteLine("No (more) questions avilable in the pool!");
+                    ans = Console.ReadKey().KeyChar.ToString();
+                    break;
+                }
+
                 i = random.Next(0, pool.Count);
                 Console.WriteLine("Correct: " + correct + "   Total: " + total);
                 Console.WriteLine(pool[i].id + "\n");
@@ -39,6 +46,10 @@ namespace Flashcards
                 }
                 //System.Threading.Thread.Sleep(2500);
                 ans = Console.ReadKey().KeyChar.ToString();
+
+                //stop repeats
+                pool.RemoveAt(i);
+
                 Console.Clear();
             }
         }
