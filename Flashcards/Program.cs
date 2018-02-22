@@ -38,7 +38,7 @@ namespace Flashcards
                     total++;
                 }
                 //System.Threading.Thread.Sleep(2500);
-                Console.ReadKey();
+                ans = Console.ReadKey().KeyChar.ToString();
                 Console.Clear();
             }
         }
